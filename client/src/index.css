@@ -1,0 +1,27 @@
+/* ============================================================
+   index.css — Global Styles
+   Applies to the whole app. Keeps things centered and readable.
+   ============================================================ */
+
+/* Use border-box sizing everywhere so padding doesn't
+   unexpectedly change element widths */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Warm off-white background — feels cozy, like a craft room */
+  background-color: #fdf6ec;
+  font-family: 'Georgia', serif;
+  color: #3d2b1f;
+  min-height: 100vh;
+}
+
+#root {
+  /* Center everything and add breathing room */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}

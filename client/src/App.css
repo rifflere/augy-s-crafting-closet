@@ -1,0 +1,48 @@
+/* ============================================================
+   App.css — App Component Styles
+   ============================================================ */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.app-header {
+  text-align: center;
+  padding: 2rem 0 1rem;
+  border-bottom: 2px dashed #d4a96a;
+}
+
+.app-header h1 {
+  font-size: 2.4rem;
+  color: #6b3a2a;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  font-size: 1.05rem;
+  color: #8c6244;
+  font-style: italic;
+}
+
+/* Loading / error messages */
+.status-message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #8c6244;
+  margin: 3rem 0;
+}
+
+.status-message.error {
+  color: #c0392b;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: #a07850;
+  font-size: 0.9rem;
+  border-top: 2px dashed #d4a96a;
+}

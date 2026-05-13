@@ -1,0 +1,98 @@
+/* ============================================================
+   YarnBall.css — Styles for a single yarn ball card
+   ============================================================ */
+
+.yarn-ball-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+
+  /* Gentle lift on hover */
+  transition: transform 0.2s ease;
+}
+
+.yarn-ball-card:hover {
+  transform: translateY(-4px);
+}
+
+/* The circle itself */
+.yarn-ball {
+  position: relative;          /* needed for absolute children */
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;          /* makes it a circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Soft shadow to ground the ball */
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.18),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.15);  /* inner shadow = depth */
+
+  cursor: default;
+}
+
+/* Skein count number in the center */
+.yarn-count {
+  position: relative;
+  z-index: 3;                  /* sit above the decorative layers */
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+
+  /* Semi-transparent white so it works on any background color */
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Glossy highlight in the top-left — classic 3D ball effect */
+.yarn-highlight {
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  width: 36px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  transform: rotate(-35deg);
+  z-index: 2;
+}
+
+/* Decorative wrap lines to suggest wound yarn */
+.yarn-wrap {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  z-index: 1;
+}
+
+.yarn-wrap-1 {
+  width: 90px;
+  height: 90px;
+}
+
+.yarn-wrap-2 {
+  width: 60px;
+  height: 60px;
+}
+
+/* Text below the ball */
+.yarn-info {
+  text-align: center;
+}
+
+.yarn-label {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #3d2b1f;
+  line-height: 1.3;
+}
+
+.yarn-quantity {
+  font-size: 0.82rem;
+  color: #8c6244;
+  margin-top: 0.2rem;
+  font-style: italic;
+}

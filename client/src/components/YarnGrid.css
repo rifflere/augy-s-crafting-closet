@@ -1,0 +1,15 @@
+/* ============================================================
+   YarnGrid.css — Responsive grid layout for yarn balls
+   ============================================================ */
+
+.yarn-grid {
+  display: grid;
+
+  /* auto-fill: create as many columns as fit
+     minmax(160px, 1fr): each column is at least 160px,
+     and they share remaining space equally.
+     This gives us a responsive grid with no media queries! */
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
