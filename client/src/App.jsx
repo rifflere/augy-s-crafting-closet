@@ -5,6 +5,7 @@
 // ============================================================
 import { useState, useEffect } from 'react'
 import YarnGrid from './components/YarnGrid'
+import LoadingCat from './components/LoadingCat'
 import './App.css'
 
 function App() {
@@ -51,9 +52,7 @@ function App() {
 
       <main>
         {/* Show a spinner while data is loading */}
-        {loading && (
-          <div className="status-message">Loading yarn stash...</div>
-        )}
+        {loading && <LoadingCat />}
 
         {/* Show an error message if the fetch failed */}
         {error && (

@@ -1,5 +1,9 @@
 /* ============================================================
-   YarnBall.css — Styles for a single yarn ball card
+   YarnBall.css — Wooly yarn ball styles
+   Key change from the metallic version: the inset shadow uses
+   a color-tinted dark (not pure black) so it reads as depth
+   in the fiber rather than a chrome reflection. The highlight
+   is gone — wool is matte, not specular.
    ============================================================ */
 
 .yarn-ball-card {
@@ -7,78 +11,55 @@
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
-
-  /* Gentle lift on hover */
   transition: transform 0.2s ease;
 }
 
 .yarn-ball-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
 }
 
-/* The circle itself */
 .yarn-ball {
-  position: relative;          /* needed for absolute children */
+  position: relative;
   width: 130px;
   height: 130px;
-  border-radius: 50%;          /* makes it a circle */
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* Soft shadow to ground the ball */
+  /* Soft, warm drop shadow — no hard specular edge */
   box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.18),
-    inset 0 -6px 12px rgba(0, 0, 0, 0.15);  /* inner shadow = depth */
+    0 6px 18px rgba(0, 0, 0, 0.22),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.2),
+    inset 5px 5px 14px rgba(255, 255, 255, 0.08);
 
   cursor: default;
+  overflow: hidden; /* clips the SVG texture to the circle */
 }
 
-/* Skein count number in the center */
+/* SVG texture layer sits behind the count number */
+.yarn-texture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
 .yarn-count {
   position: relative;
-  z-index: 3;                  /* sit above the decorative layers */
+  z-index: 3;
   font-size: 1.8rem;
   font-weight: bold;
   font-family: 'Georgia', serif;
+  color: rgba(255, 255, 255, 0.93);
 
-  /* Semi-transparent white so it works on any background color */
-  color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  /* Softer text shadow — wool, not chrome */
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Glossy highlight in the top-left — classic 3D ball effect */
-.yarn-highlight {
-  position: absolute;
-  top: 14px;
-  left: 18px;
-  width: 36px;
-  height: 24px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.28);
-  transform: rotate(-35deg);
-  z-index: 2;
-}
-
-/* Decorative wrap lines to suggest wound yarn */
-.yarn-wrap {
-  position: absolute;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  z-index: 1;
-}
-
-.yarn-wrap-1 {
-  width: 90px;
-  height: 90px;
-}
-
-.yarn-wrap-2 {
-  width: 60px;
-  height: 60px;
-}
-
-/* Text below the ball */
 .yarn-info {
   text-align: center;
 }
